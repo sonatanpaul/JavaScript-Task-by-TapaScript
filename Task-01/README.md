@@ -4,11 +4,9 @@
 
 ### ✅ Task 1: Setting Up Your Environment
 
-### ✅ Task 1: Setting Up Your Environment
-
-1. Install VS Code (if not installed).
-2. Set up Live Server or open the HTML file directly in a browser.
-3. Open the DevTools Console (Right-click → Inspect → Console).
+1. Install VS Code (if not installed) (Done ✅).
+2. Set up Live Server or open the HTML file directly in a browser (Done ✅).
+3. Open the DevTools Console (Right-click → Inspect → Console) (Done ✅).
 
 ### ✅ Task 2: Write Your First JavaScript Code
 
