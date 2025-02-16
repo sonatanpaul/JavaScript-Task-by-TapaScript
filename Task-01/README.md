@@ -76,6 +76,6 @@
 3. Understand the difefrences.
 
 - [x] when I using heading tag in script tag then `document.write` tag output showing top.
-- when I using end of body tag is script tag then `document.write` tag output showing html tag bottom .
+- [x] when I using end of body tag is script tag then `document.write` tag output showing html tag bottom .
 
-- when I using `async and defer` in script tag `document.write` tag not execute showing error message
+- [x] when I using `async and defer` in script tag `document.write` tag not execute showing error message
