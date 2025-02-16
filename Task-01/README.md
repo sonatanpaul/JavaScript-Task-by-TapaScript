@@ -40,5 +40,42 @@
 ### ✅ Task 3: Experiment with Different JavaScript Loading Methods - (Done ✅)
 
 1. Add the script in `<head>`, end of the `<body>` tag.
+
+## When Script Tag using Head Tag
+
+## Code
+
+![task-2](./task-01%20code.png)
+
+## Output
+
+![task-2](./task-01%20output.png)
+
+## When Script Tag using Body End
+
+## Code
+
+![Task-2](./task-2-code.png)
+
+## Output
+
+![Task-2](./task2-output.png)
+
 2. Use `async` and `defer` attributes
+
+## When heading and end of body tag I using async and defer in script tag output given Same Error .
+
+## Code
+
+![Code](./async%20and%20defer.png)
+
+## Output
+
+![Output](error.png)
+
 3. Understand the difefrences.
+
+- [x] when I using heading tag in script tag then `document.write` tag output showing top.
+- when I using end of body tag is script tag then `document.write` tag output showing html tag bottom .
+
+- when I using `async and defer` in script tag `document.write` tag not execute showing error message
