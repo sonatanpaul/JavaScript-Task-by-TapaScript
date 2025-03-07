@@ -67,3 +67,46 @@ if (age < 18) {
 }
 
 // task - 5;
+
+let month = "june";
+
+switch (month) {
+  case "march":
+  case "april":
+    console.log("Aries");
+    break;
+  case "april":
+  case "may":
+    console.log("Taurus");
+    break;
+  case "may":
+  case "june":
+    console.log("Gemini");
+    break;
+  case "june":
+  case "july":
+    console.log("Cancer");
+    break;
+  case "july":
+  case "august":
+    console.log("Leo");
+    break;
+  case "august":
+  case "september":
+    console.log("Virgo");
+    break;
+  case "spetember":
+  case "october":
+    console.log("Libra");
+    break;
+  case "October":
+  case "November":
+    console.log("Scorpio");
+    break;
+  case "November":
+  case "December":
+    console.log("Sagittarius");
+    break;
+  default:
+    console.log("Invalid Month");
+}
