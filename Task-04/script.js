@@ -110,3 +110,21 @@ switch (month) {
   default:
     console.log("Invalid Month");
 }
+
+// task - 6
+
+let sideOne = 2;
+let sideTwo = 3;
+let sideThree = 2;
+
+if (sideOne === sideTwo && sideTwo === sideThree) {
+  console.log("Equilateral Triangle");
+} else if (
+  sideOne === sideTwo ||
+  sideTwo === sideThree ||
+  sideOne === sideThree
+) {
+  console.log("Isosceles Triangle");
+} else {
+  console.log("Isosceles Triangle");
+}
