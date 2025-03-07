@@ -25,7 +25,6 @@ if (multiples % 100 === 0) {
 }
 
 // Task - 03:
-
 let number1 = 20;
 let number2 = 11;
 let operator = "+";
@@ -54,3 +53,17 @@ switch (operator) {
   default:
     console.log("Invalid Number");
 }
+
+// task 4
+
+let age = 26;
+
+if (age < 18) {
+  console.log("Ticket Price $3");
+} else if (age >= 18 && age <= 60) {
+  console.log("Ticket Price $10");
+} else {
+  console.log("Ticket Price $8");
+}
+
+// task - 5;
