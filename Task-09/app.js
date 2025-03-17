@@ -71,7 +71,7 @@ function myFrindName() {
 // Function Hoisting as a Expression
 
 // invoke function
-fullName(); // fullName is not a function reasson fullName is variable and varibale value is function
+fullName(); // fullName is not a function, reasson: fullName is variable and varibale value is function and execution context createion phase variable value undifined , that why fullName function is not a function
 
 // declare function fullName
 var fullName = function () {
