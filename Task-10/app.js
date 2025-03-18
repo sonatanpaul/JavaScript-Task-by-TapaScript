@@ -36,4 +36,12 @@ parent();
 
 // Ans : Kartik Chandra Paul
 
+function sayName() {
+  for (let i = 0; i <= 10; i++) {
+    let names = "Sonata Paul";
+  }
+}
+sayName();
 
+// console.log(names); // Reference Error
+//  Resson : when we declare {} using let and const variable cant access outside
