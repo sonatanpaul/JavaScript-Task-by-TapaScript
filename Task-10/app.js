@@ -23,3 +23,17 @@ add(10);
 console.log(total);
 // Answer : 15 , code is ok
 
+// 3. Create a function with a nested function and log a variable from the parent function.
+
+function parent() {
+  let parentName = "Kartik Chandra Paul";
+  function child() {
+    console.log(parentName);
+  }
+  child();
+}
+parent();
+
+// Ans : Kartik Chandra Paul
+
+
