@@ -104,6 +104,7 @@ best way method is (structuredClone()) . structuredClone method copy shallow or 
 */
 
 // 10. Loop and print values using Object destructuiring
+/*
 const users = [
   {
     name: "Alex",
@@ -126,3 +127,5 @@ const users = [
 for (let { name, address, age } of users) {
   console.log(name, address, age);
 }
+
+*/
