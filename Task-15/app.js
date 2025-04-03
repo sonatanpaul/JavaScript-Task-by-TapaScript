@@ -187,3 +187,40 @@
   console.log(descendingFriends);
   // ['tom', 'rayhan', 'paul', 'bikash', 'anik', 'akash']
 }
+
+{
+  // T-018: Can you give examples of sparse and dense arrays?
+  // sparse Array :
+  const sparseArray = [1, , , 4, , 6];
+  console.log(sparseArray); // [1, empty × 2, 4, empty, 6]
+  console.log(sparseArray[0]); // 1
+  console.log(sparseArray[1]); // undefined
+  console.log(sparseArray[2]); // undefined
+  console.log(sparseArray[3]); // 4
+  console.log(sparseArray[4]); // undefined
+  console.log(sparseArray[5]); // 6
+
+  //   dense Array :
+  const denseArray = [1, 2, 3, 4, 5];
+  console.log(denseArray); // [1, 2, 3, 4, 5]
+  console.log(denseArray[0]); // 1
+  console.log(denseArray[1]); // 2
+  console.log(denseArray[2]); // 3
+  console.log(denseArray[3]); // 4
+  console.log(denseArray[4]); // 5
+}
+
+{
+  // T-019: Give a practical usages of the .fill() method
+
+  const busSeat = ["booked", "available", "booked", "booked", "booked"];
+  const newBusSeat = busSeat.fill("available", 1, 4);
+  console.log(newBusSeat); // ['booked', 'available', 'available', 'available', 'booked']
+}
+
+{
+  // T-020: How to convert an array to a string?
+  const number = [1, 2, 3, 4, 5, 6];
+  const arrayToString = number.join(" ");
+  console.log(arrayToString); // 1 2 3 4 5 6
+}
