@@ -251,62 +251,238 @@ const departments = [
 
 // =================================================
 
+// {
+//   // T-021: Can you filter employees who work in the "Engineering" department?
+//   const engDeperatment = departments.find(
+//     (departemnt) => departemnt.name === "Engineering"
+//   );
+//   console.log(engDeperatment); //  {id: 2, name: 'Engineering'}
+//   const empDepartment = employees.filter(
+//     (employee) => employee.departmentId === engDeperatment.id
+//   );
+//   console.log(empDepartment); //  (3) [{…}, {…}, {…}]
+// }
+
+// {
+//   // T-022: Create a new array that combines employee names and department names in the format: "Alice (HR)".
+//   const newArray = employees.map((employee) => {
+//     const departmentArray = departments.find(
+//       (department) => department.id === employee.departmentId
+//     );
+//     return `${employee.name} (${departmentArray.name})`;
+//   });
+//   console.log(newArray);
+// }
+
+// {
+//   // T-023: Find the highest salary among employees.
+//   const highestSalary = employees.reduce((max, employee) => {
+//     return employee.salary > max ? employee.salary : max;
+//   }, employees[0].salary);
+
+//   console.log(highestSalary);
+
+//   // T-023: Find the lowest salary among employees.
+//   const lowestSalary = employees.reduce((min, employee) => {
+//     return employee.salary < min ? employee.salary : min;
+//   }, employees[0].salary);
+//   console.log(lowestSalary);
+// }
+
+// {
+//   // T-024: Check if there is at least one employee in the "Sales" department.
+//   const salesId = departments.find((dept) => dept.name === "Sales");
+//   console.log(salesId);
+//   const salesEmployee = employees.some(
+//     (employee) => employee.departmentId === salesId.id
+//   );
+//   console.log(salesEmployee); // true
+// }
+
+// {
+//   // T-025: Write a function to filter employees earning more than 6000.
+//   function filterHighEarners(employees, amount) {
+//     return employees.filter((employee) => employee.salary > amount);
+//   }
+
+//   const highEarners = filterHighEarners(employees, 6000);
+//   const highEarners1 = filterHighEarners(employees, 5000);
+//   console.log(highEarners); // 3
+//   console.log(highEarners1); // 7
+// }
+
+// {
+//   // T-026: Create an array of employee names only.
+//   const namesArray = employees.map((employee) => employee.name);
+//   console.log(namesArray); // ['Alice', 'Bob', 'Charlie', 'Diana', 'Edward', 'Fiona', 'George', 'Helen', 'Ian', 'Jane']
+// }
+
+// {
+//   // T-027: Calculate the total salary of all employees using
+//   const totalSalary = employees.reduce((accumulator, employee) => {
+//     return accumulator + employee.salary;
+//   }, 0);
+//   console.log(totalSalary); // 58300
+// }
+
+// {
+//   // T-028: Is there any employee earning less than 5000?
+//   const employeeEarning = employees.filter(
+//     (employee) => employee.salary < 5000
+//   );
+//   console.log(employeeEarning); // 2 person
+
+//   // Option 2
+
+//   const employeeEarning1 = employees.some((employee) => employee.salary < 5000);
+//   console.log(employeeEarning1); //  true
+// }
+
+// {
+//   // T-029: Find the first employee who earns exactly 5100.
+//   const earning5100 = employees.find((employee) => employee.salary === 5100);
+//   console.log(earning5100); // {id: 10, name: 'Jane', departmentId: 1, salary: 5100}
+
+//   // T-029: Find the Last employee who earns exactly 5100.
+//   const earning5100Last = employees.findLast(
+//     (employee) => employee.salary === 5100
+//   );
+//   console.log(earning5100Last);
+// }
+
+// {
+//   // T-030: Find the last employee in the "HR" department.
+//   const hrDept = departments.find((employee) => employee.name === "HR");
+//   // console.log(hrDept);
+//   const lastEmployeeHr = employees.findLast(
+//     (employee) => employee.departmentId === hrDept.id
+//   );
+//   console.log(lastEmployeeHr); // {id: 10, name: 'Jane', departmentId: 1, salary: 5100}
+// }
+
+// {
+//   // T-031: Find the first employee in the "Marketing" department.
+//   const marketingDept = departments.find((dept) => dept.name === "Marketing");
+//   console.log(marketingDept); // {id: 3, name: 'Marketing'}
+//   const firstEmployeeMarketing = employees.find(
+//     (employee) => employee.departmentId === marketingDept.id
+//   );
+//   console.log(firstEmployeeMarketing);
+// }
+
+// {
+//   // T-032: Check if all employees earn more than 4000.
+//   const allEmployees = employees.every((employee) => employee.salary > 4000);
+//   console.log(allEmployees); // true
+// }
+
+// {
+//   // T-033: Find the last employee in the "HR" department.
+//   const hrDept = departments.find((dept) => dept.name === "HR");
+//   const lastEmployeeHr = employees.findLast(
+//     (employee) => employee.departmentId === hrDept.id
+//   );
+//   console.log(lastEmployeeHr); // {id: 10, name: 'Jane', departmentId: 1, salary: 5100}
+// }
+
 {
-  // T-021: Can you filter employees who work in the "Engineering" department?
-  const engDeperatment = departments.find(
-    (departemnt) => departemnt.name === "Engineering"
+  // T-034: Verify if all employees belong to a department listed in the departments array.
+  const verifyAllEmployee = employees.every((employee) =>
+    departments.some((dept) => employee.departmentId === dept.id)
   );
-  console.log(engDeperatment); //  {id: 2, name: 'Engineering'}
-  const empDepartment = employees.filter(
-    (employee) => employee.departmentId === engDeperatment.id
-  );
-  console.log(empDepartment); //  (3) [{…}, {…}, {…}]
+  console.log(verifyAllEmployee); //  true
 }
 
 {
-  // T-022: Create a new array that combines employee names and department names in the format: "Alice (HR)".
-  const newArray = employees.map((employee) => {
-    const departmentArray = departments.find(
-      (department) => department.id === employee.departmentId
+  const employeeDept = employees.map((employee) => {
+    const department = departments.find(
+      (dept) => dept.id === employee.departmentId
     );
-    return `${employee.name} (${departmentArray.name})`;
+    return ` ${employee.name} works in ${department.name}`;
   });
-  console.log(newArray);
+  console.log(employeeDept);
 }
 
 {
-  // T-023: Find the highest salary among employees.
-  const highestSalary = employees.reduce((max, employee) => {
-    return employee.salary > max ? employee.salary : max;
-  }, employees[0].salary);
-
-  console.log(highestSalary);
-
-  // T-023: Find the lowest salary among employees.
-  const lowestSalary = employees.reduce((min, employee) => {
-    return employee.salary < min ? employee.salary : min;
-  }, employees[0].salary);
-  console.log(lowestSalary);
+  // T-036: Extract all employee names into a single array.
+  const allEmployees = employees.map((employee) => employee.name);
+  console.log(allEmployees); // ['Alice', 'Bob', 'Charlie', 'Diana', 'Edward', 'Fiona', 'George', 'Helen', 'Ian', 'Jane']
 }
 
 {
-  // T-024: Check if there is at least one employee in the "Sales" department.
-  const salesId = departments.find((dept) => dept.name === "Sales");
-  console.log(salesId);
-  const salesEmployee = employees.some(
-    (employee) => employee.departmentId === salesId.id
+  // T-037: Increment each employee's salary by 10%
+  const incrementSalary = employees.map((employee) => ({
+    ...employee,
+    salary: employee.salary * 1.1,
+  }));
+  console.log(incrementSalary);
+}
+
+{
+  // T-038: Assume each employee can have multiple skills. Create an array of employee skills and flatten them. Example: [{name: "Alice", skills: ["Excel", "Management"]}, ...].
+  const employees = [
+    {
+      id: 1,
+      name: "Alice",
+      departmentId: 1,
+      salary: 5000,
+      skills: ["Excel", "Management"],
+    },
+    {
+      id: 2,
+      name: "Bob",
+      departmentId: 2,
+      salary: 7000,
+      skills: ["JavaScript", "React"],
+    },
+    {
+      id: 3,
+      name: "Charlie",
+      departmentId: 3,
+      salary: 4500,
+      skills: ["Marketing", "SEO"],
+    },
+    {
+      id: 4,
+      name: "Diana",
+      departmentId: 1,
+      salary: 5500,
+      skills: ["Recruitment", "Training"],
+    },
+    {
+      id: 5,
+      name: "Edward",
+      departmentId: 2,
+      salary: 8000,
+      skills: ["Leadership", "Communication"],
+    },
+  ];
+
+  const allSkills = employees.flatMap((employee) => employee.skills);
+  console.log(allSkills); // ['Excel', 'Management', 'JavaScript', 'React', 'Marketing', 'SEO', 'Recruitment', 'Training', 'Leadership', 'Communication']
+}
+
+{
+  // T-039: Find the total salary of all employees working in the "Engineering" department.
+  const findDept = departments.find((dept) => dept.name === "Engineering");
+  console.log(findDept);
+  const filterEmpDept = employees.filter(
+    (employee) => employee.departmentId === findDept.id
   );
-  console.log(salesEmployee); // true
+  console.log(filterEmpDept);
+  const totalEngDeptSalary = filterEmpDept.reduce((intialValue, empSlary) => {
+    return intialValue + empSlary.salary;
+  }, 0);
+  console.log(totalEngDeptSalary); // 19800
 }
-
 {
-  // T-025: Write a function to filter employees earning more than 6000.
-  function filterHighEarners(employees, amount) {
-    return employees.filter((employee) => employee.salary > amount);
-  }
-
-  const highEarners = filterHighEarners(employees, 6000);
-  const highEarners1 = filterHighEarners(employees, 5000);
-  console.log(highEarners); // 3
-  console.log(highEarners1); // 7
+  // T-040: Check if there is any department where all employees earn more than 5000.
+  const marketingDept = departments.find((dept) => dept.name === "Marketing");
+  console.log(marketingDept);
+  const filterMakDept = employees
+    .filter((employee) => employee.departmentId === marketingDept.id)
+    .every((employee) => employee.salary > 5000);
+  console.log(filterMakDept);
 }
+
+
