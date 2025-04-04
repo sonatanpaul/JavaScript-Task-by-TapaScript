@@ -224,3 +224,89 @@
   const arrayToString = number.join(" ");
   console.log(arrayToString); // 1 2 3 4 5 6
 }
+
+// Consider these input arrays for question T-21 to T-48
+
+// employees array: An array of emplyees working in a department.
+const employees = [
+  { id: 1, name: "Alice", departmentId: 1, salary: 5000 },
+  { id: 2, name: "Bob", departmentId: 2, salary: 7000 },
+  { id: 3, name: "Charlie", departmentId: 3, salary: 4500 },
+  { id: 4, name: "Diana", departmentId: 1, salary: 5500 },
+  { id: 5, name: "Edward", departmentId: 2, salary: 8000 },
+  { id: 6, name: "Fiona", departmentId: 4, salary: 6000 },
+  { id: 7, name: "George", departmentId: 3, salary: 5200 },
+  { id: 8, name: "Helen", departmentId: 4, salary: 7200 },
+  { id: 9, name: "Ian", departmentId: 2, salary: 4800 },
+  { id: 10, name: "Jane", departmentId: 1, salary: 5100 },
+];
+// departments array: An array of departments where emplyees work.
+
+const departments = [
+  { id: 1, name: "HR" },
+  { id: 2, name: "Engineering" },
+  { id: 3, name: "Marketing" },
+  { id: 4, name: "Sales" },
+];
+
+// =================================================
+
+{
+  // T-021: Can you filter employees who work in the "Engineering" department?
+  const engDeperatment = departments.find(
+    (departemnt) => departemnt.name === "Engineering"
+  );
+  console.log(engDeperatment); //  {id: 2, name: 'Engineering'}
+  const empDepartment = employees.filter(
+    (employee) => employee.departmentId === engDeperatment.id
+  );
+  console.log(empDepartment); //  (3) [{…}, {…}, {…}]
+}
+
+{
+  // T-022: Create a new array that combines employee names and department names in the format: "Alice (HR)".
+  const newArray = employees.map((employee) => {
+    const departmentArray = departments.find(
+      (department) => department.id === employee.departmentId
+    );
+    return `${employee.name} (${departmentArray.name})`;
+  });
+  console.log(newArray);
+}
+
+{
+  // T-023: Find the highest salary among employees.
+  const highestSalary = employees.reduce((max, employee) => {
+    return employee.salary > max ? employee.salary : max;
+  }, employees[0].salary);
+
+  console.log(highestSalary);
+
+  // T-023: Find the lowest salary among employees.
+  const lowestSalary = employees.reduce((min, employee) => {
+    return employee.salary < min ? employee.salary : min;
+  }, employees[0].salary);
+  console.log(lowestSalary);
+}
+
+{
+  // T-024: Check if there is at least one employee in the "Sales" department.
+  const salesId = departments.find((dept) => dept.name === "Sales");
+  console.log(salesId);
+  const salesEmployee = employees.some(
+    (employee) => employee.departmentId === salesId.id
+  );
+  console.log(salesEmployee); // true
+}
+
+{
+  // T-025: Write a function to filter employees earning more than 6000.
+  function filterHighEarners(employees, amount) {
+    return employees.filter((employee) => employee.salary > amount);
+  }
+
+  const highEarners = filterHighEarners(employees, 6000);
+  const highEarners1 = filterHighEarners(employees, 5000);
+  console.log(highEarners); // 3
+  console.log(highEarners1); // 7
+}
