@@ -376,14 +376,14 @@ const departments = [
 //   console.log(allEmployees); // true
 // }
 
-// {
-//   // T-033: Find the last employee in the "HR" department.
-//   const hrDept = departments.find((dept) => dept.name === "HR");
-//   const lastEmployeeHr = employees.findLast(
-//     (employee) => employee.departmentId === hrDept.id
-//   );
-//   console.log(lastEmployeeHr); // {id: 10, name: 'Jane', departmentId: 1, salary: 5100}
-// }
+{
+  // T-033: Find the last employee in the "HR" department.
+  const salesDept = departments.find((dept) => dept.name === "Sales");
+  const lastEmployeeSales = employees.findLast(
+    (employee) => employee.departmentId === salesDept.id
+  );
+  console.log(lastEmployeeSales); // {id: 10, name: 'Jane', departmentId: 1, salary: 5100}
+}
 
 {
   // T-034: Verify if all employees belong to a department listed in the departments array.
@@ -485,4 +485,144 @@ const departments = [
   console.log(filterMakDept);
 }
 
+{
+  // T-041: Assume each employee has a projects array (e.g., { id: 1, name: "Alice", projects: ["Project A", "Project B"] }). Find the total number of unique projects being handled across all employees.
+  const employees = [
+    { id: 1, name: "Alice", projects: ["Project A", "Project B"] },
+    { id: 2, name: "Bob", projects: ["Project C", "Project B"] },
+    { id: 3, name: "Charlie", projects: ["Project A", "Project D"] },
+    { id: 4, name: "Diana", projects: ["Project E"] },
+    { id: 5, name: "Edward", projects: ["Project F", "Project C"] },
+  ];
+  const allProjects = employees.flatMap((employee) => employee.projects);
+  console.log(allProjects);
+  const uniqueProjects = allProjects.filter(
+    (project, index) => allProjects.indexOf(project) === index
+  );
+  console.log(uniqueProjects);
+  const totalUniqueProjects = uniqueProjects.length;
+  console.log(totalUniqueProjects); // 6
+}
 
+{
+  // T-042: For each employee, find their department name and return an array of employee names with their department names.
+  const employeeWithDepartment = employees.map((employee) => {
+    const deparment = departments.find(
+      (dept) => dept.id === employee.departmentId
+    );
+    return {
+      employeeName: employee.name,
+      deparmentName: deparment.name,
+    };
+  });
+  console.log(employeeWithDepartment);
+}
+
+{
+  const higherSalaryList = employees.filter(
+    (employee) => employee.salary > 6000
+  );
+  console.log(higherSalaryList); // 3 perosn
+  const higherSalaryName = higherSalaryList.map((employee) => employee.name);
+
+  console.log(higherSalaryName); // ['Bob', 'Edward', 'Helen']
+}
+
+{
+  // T-044: Write a for-of loop to print the names of all employees from the employees array.
+  for (let employee of employees) {
+    // console.log(employee);
+    const employName = employee.name;
+    console.log(employName);
+  }
+}
+
+{
+  // T-045: Using a for-of loop, print the names of employees earning more than 5000.
+  for (let employee of employees) {
+    if (employee.salary > 5000) {
+      console.log(employee.name);
+    }
+  }
+}
+
+{
+  // T-046: Modify the for-of loop to destructure each employee object and log their name and salary.
+  for (let { name, salary } of employees) {
+    console.log(`Name : ${name},  Salary: ${salary}`);
+  }
+}
+{
+  // T-047: Write a for-of loop to match employees with their departments and print the results.
+  for (let employee of employees) {
+    const deparment = departments.find(
+      (dept) => dept.id === employee.departmentId
+    );
+    console.log(`${employee.name} works ${deparment.name}`);
+  }
+}
+
+{
+  // T-048: Use Array.prototype.entries() with a for-of loop to print the index and name of each employee.
+  const arrayEntries = employees.entries();
+  console.log(arrayEntries);
+  for (let [index, employee] of arrayEntries) {
+    console.log(`Index: ${index} Name: ${employee.name}`);
+  }
+}
+
+{
+  // T-049: Given the array-like object below, access the second element and log it:
+  const arrayLike = { 0: "First", 1: "Second", length: 2 };
+  const convertArray = Array.from(arrayLike);
+
+  console.log(arrayLike); // {0: 'First', 1: 'Second', length: 2}
+  console.log(convertArray); // ['First', 'Second']
+  const [, second] = convertArray;
+  console.log(second); // Second
+  console.log(convertArray[1]); // Second
+}
+
+{
+  // T-050: Write a function that takes a variable number of arguments and converts the arguments object into a real array using Array.from.
+  function numbers(a, b) {
+    const convertArray = Array.from(arguments);
+    console.log(convertArray); // [1, 2, 3, 4, 5, 6]
+    const convertArray1 = [...arguments];
+    console.log(convertArray1); // [1, 2, 3, 4, 5, 6]
+  }
+  numbers(1, 2, 3, 4, 5, 6);
+}
+
+{
+  // T-051: Write a snippet to select all div elements on a webpage (using document.querySelectorAll) and convert the resulting NodeList into an array.
+  const div = document.querySelectorAll("div");
+  console.log(div); // NodeList(5) [div, div, div, div, div]
+  const nodelistToArray = Array.from(div);
+  console.log(nodelistToArray); // [div, div, div, div, div]
+}
+
+{
+  // T-052: Merge these two arrays into a single array:
+  const arr1 = [1, 2];
+  const arr2 = [3, 4];
+  const mergedArray = arr1.concat(arr2);
+  console.log(mergedArray); // [1, 2, 3, 4]
+  const mergedArray2 = [...arr1, ...arr2];
+  console.log(mergedArray2); // [1, 2, 3, 4]
+}
+
+{
+  // T-053: Create an array of n duplicate values using Array.from. Input: Create an array with 5 "A" values. Output: ["A", "A", "A", "A", "A"]
+  const array = Array.from({ length: 5 }, () => "A");
+  console.log(array); // ['A', 'A', 'A', 'A', 'A']
+  // option 2
+  const array1 = Array(5).fill("A");
+  console.log(array1); // ['A', 'A', 'A', 'A', 'A']
+}
+
+{
+  // T-054: Use Array.from to convert a string like "Hello" into an array of characters.
+  const stringToArray = Array.from("Hello");
+  console.log(stringToArray); // ['H', 'e', 'l', 'l', 'o']
+}
