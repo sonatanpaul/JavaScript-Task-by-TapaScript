@@ -626,3 +626,151 @@ const departments = [
   const stringToArray = Array.from("Hello");
   console.log(stringToArray); // ['H', 'e', 'l', 'l', 'o']
 }
+{
+  // T-055: For the array, ['apple', 'banana', 'apricot', 'mango', 'blueberry'], group words by their first letter using group().
+  const fruits = ["apple", "banana", "apricot", "mango", "blueberry"];
+
+  const grouped = Object.groupBy(fruits, (fruit) => fruit[0]);
+  console.log(grouped);
+}
+
+{
+  // T-057: From this array [3, 7, 3, 2, 3, 8, 7, 7], find the most repeated number. Hint: Use array method.
+  const array = [3, 7, 3, 2, 3, 8, 7, 7];
+
+  const count = array.reduce((acc, num) => {
+    acc[num] = (acc[num] || 0) + 1;
+    return acc;
+  }, {});
+
+  const mostRepeated = Object.keys(count).reduce((max, num) =>
+    count[num] > count[max] ? num : max
+  );
+
+  console.log(`most repeated number is: ${mostRepeated}`);
+}
+
+{
+  // T-058: Find the median of [5, 2, 9, 1, 3, 6, 8].
+  const array = [5, 2, 9, 1, 3, 6, 8];
+  const sortedArray = array.sort((a, b) => a - b);
+  const middleIndex = Math.floor(sortedArray.length / 2);
+
+  const median =
+    sortedArray.length % 2 === 0
+      ? (sortedArray[middleIndex - 1] + sortedArray[middleIndex]) / 2
+      : sortedArray[middleIndex];
+
+  console.log(` median number is: ${median}`);
+}
+
+{
+  // T-059: Convert this array [['a', 1], ['b', 2], ['c', 3]], into { a: 1, b: 2, c: 3 } using array method(s).
+  const array = [
+    ["a", 1],
+    ["b", 2],
+    ["c", 3],
+  ];
+
+  const obj = {};
+  for (const [key, value] of array.entries()) {
+    obj[array[key][0]] = array[key][1];
+  }
+  console.log(obj);
+}
+
+{
+  // T-060: Flatten and convert all letters to uppercase in one step using flatMap(). Here is input array: [['a', 'b'], ['c', 'd']].
+  const array = [
+    ["a", "b"],
+    ["c", "d"],
+  ];
+
+  const result = array.flatMap((subArray) =>
+    subArray.map((letter) => letter.toUpperCase())
+  );
+
+  console.log(result);
+}
+
+{
+  //  T-061: Count the occurrences of each fruit in this array: ['apple', 'banana', 'apple', 'mango', 'banana', 'banana']
+  const fruits = ["apple", "banana", "apple", "mango", "banana", "banana"];
+
+  const fruitCounts = fruits.reduce((acc, fruit) => {
+    acc[fruit] = (acc[fruit] || 0) + 1;
+    return acc;
+  }, {});
+
+  console.log(fruitCounts);
+}
+
+{
+  //T-062: Extract extract [‘b’, ‘c’, ‘d’] using slice() from this array: ['a', 'b', 'c', 'd', 'e']
+  const array = ["a", "b", "c", "d", "e"];
+  const result = array.slice(1, 4);
+
+  console.log(result);
+}
+
+{
+  // T-063: Sort the array [9, 3, 1, 6, 8] in ascending order using toSorted()
+  const array = [9, 3, 1, 6, 8];
+  const sortedArray = array.toSorted((a, b) => a - b);
+
+  console.log(sortedArray);
+}
+
+{
+  // T-064: Reverse [1, 2, 3, 4, 5] using toReversed() and compare it with reverse()
+  const array = [1, 2, 3, 4, 5];
+
+  // Using toReversed()
+  const reversedArray = array.toReversed();
+  console.log("Reversed using toReversed:", reversedArray);
+  console.log("Original array after toReversed:", array);
+  // Original remains unchanged
+
+  // Using reverse()
+  const reverseInPlace = array.reverse();
+  console.log("Reversed using reverse:", reverseInPlace);
+  console.log("Original array after reverse:", array);
+  // Original is modified
+}
+
+{
+  // T-065: Group the follwing array elements based on age(Adult vs Non-Adult):
+  const users = [
+    { name: "Alice", age: 55 },
+    { name: "Bob", age: 3 },
+    { name: "Charlie", age: 25 },
+  ];
+
+  const adultAndNonAdult = Object.groupBy(users, (user) => {
+    return user.age >= 18 ? "Adult" : "Non Adult";
+  });
+  console.log(adultAndNonAdult);
+}
+
+{
+  //  T-066: Find the longest word in this sentence using Array and Array methods: "40 Days of JavaScript by tapaScript is a powerful initiative".
+  const sentence =
+    "40 Days of JavaScript by tapaScript is a powerful initiative";
+
+  const words = sentence.split(" ");
+
+  const longestWord = words.reduce((longest, currentWord) =>
+    currentWord.length > longest.length ? currentWord : longest
+  );
+
+  console.log(`longest word is: ${longestWord}`);
+}
+
+{
+  // T-067: Find common elements between two arrays, [1, 2, 3, 4], [3, 4, 5, 6]
+  const array1 = [1, 2, 3, 4];
+  const array2 = [3, 4, 5, 6];
+
+  const commonElements = array1.filter((element) => array2.includes(element));
+  console.log(commonElements);
+}
