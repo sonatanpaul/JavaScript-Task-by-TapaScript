@@ -44,7 +44,14 @@ function createExpenseTracker(username, initialBudget) {
       );
       return categoryExpense;
     },
-    
+    highestExpense() {
+      const hightExpense = expenses.reduce(
+        (accumulator, currentValue) =>
+          Math.max(accumulator, currentValue.amount),
+        0
+      );
+      return hightExpense;
+    },
   };
 }
 
@@ -54,7 +61,7 @@ const expenseTracker = createExpenseTracker("Tapas", 5000);
 expenseTracker.addExpense(200, "Food", "Lunch"); // adding
 expenseTracker.addExpense(200, "Food", "Lunch"); // adding
 expenseTracker.addExpense(500, "Shopping", "New Shoes"); // adding
-expenseTracker.addExpense(500, "Shopping", "New Shoes"); // adding
+expenseTracker.addExpense(700, "Shopping", "New Shoes"); // adding
 
 // Removing Data
 expenseTracker.removeExpense(1);
@@ -69,6 +76,5 @@ console.log(expenseTracker.totalExpense()); // 450
 // Getting expense by category
 console.log(expenseTracker.expenseByCategory()); // (2) [{…}, {…}]
 
-
 // Get the Highest Expense
-// expenseTracker.highestExpense()
+console.log(expenseTracker.highestExpense());
